@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul v-for="li in mainList">
-      <li class="li-item" v-if="li.length > 0">URL: {{li[0]}}</li>
+      <li class="li-item" v-if="li.length > 0">URL: {{li}}</li>
     </ul>
   </div>
 

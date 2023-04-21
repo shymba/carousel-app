@@ -7,21 +7,19 @@
           :id="itemData.url"
           :value="itemData.url"
           v-model="checkedImage"
+          @click="sendURL(itemData.url)"
       />
       <label :for="itemData.url" >
         <img :src="itemData.download_url"/>
       </label>
     </div>
-    <CheckedList :mainList="listOfChecked"/>
   </div>
 </template>
 
 <script>
-import CheckedList from "@/components/CheckedList";
 
 export default {
   name: "CarouselItem",
-  components: {CheckedList},
   props: {
     itemData: {
       type: Object,
@@ -34,15 +32,12 @@ export default {
       mainList: [],
     }
   },
-    computed: {
-      listOfChecked() {
-        if(this.checkedImage) {
-         this.mainList.push(this.checkedImage)
-        }
-        return this.mainList
-      }
+  methods: {
+    sendURL(e) {
+      this.$emit('addURL', e)
     }
-  }
+  },
+}
 </script>
 
 <style lang="scss">

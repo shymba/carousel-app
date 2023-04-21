@@ -1,26 +1,33 @@
 <template>
-  <Carousel :apiListImages="listImages" />
+  <Carousel :apiListImages="listImages" @foo="foo" />
+  <CheckedList :mainList="imgURLs"/>
 </template>
 
 <script>
 import Carousel from './components/Carousel.vue';
 import ApiService from "@/modules/apiService";
+import CheckedList from "@/components/CheckedList";
 
 const apiListImg = new ApiService();
 
 export default {
   name: 'App',
   components: {
+    CheckedList,
     Carousel,
   },
   data() {
     return {
       listImages: [],
+      imgURLs: []
     }
   },
   methods: {
     async getListAllImg() {
       this.listImages = await apiListImg.getListImg()
+    },
+    foo(arg) {
+      this.imgURLs = arg
     },
   },
   async mounted() {

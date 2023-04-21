@@ -5,6 +5,7 @@
           v-for="(image, index) in apiListImages"
           :key="image.id"
           :itemData="image"
+          @addURL="foo"
       />
     </div>
     <button
@@ -50,6 +51,10 @@ export default {
     nextImage() {
       this.currentIdx++
     },
+    foo(e){
+      this.newData.push(e)
+      this.$emit('foo', this.newData)
+    }
   },
 }
 </script>
