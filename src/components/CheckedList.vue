@@ -25,7 +25,7 @@ export default {
 }
 
 .li-item {
-  text-align: left;
+  text-align: center;
   color: yellow;
 }
 ul li {
