@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-of-urls">
     <ul v-for="li in mainList">
       <li class="li-item" v-if="li.length > 0">URL: {{li}}</li>
     </ul>
@@ -20,7 +20,12 @@ export default {
 </script>
 
 <style lang="scss">
+.list-of-urls {
+  margin-left: 10px;
+}
+
 .li-item {
+  text-align: left;
   color: yellow;
 }
 ul li {
