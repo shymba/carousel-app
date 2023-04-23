@@ -54,6 +54,10 @@ export default {
     foo(e){
       if(!this.newData.includes(e)) {
         this.newData.push(e)
+      } else {
+        this.newData = this.newData.filter((item) => {
+          return item !== e
+        })
       }
       this.$emit('foo', this.newData)
     }
