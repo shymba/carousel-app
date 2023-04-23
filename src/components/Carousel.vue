@@ -52,7 +52,9 @@ export default {
       this.currentIdx++
     },
     foo(e){
-      this.newData.push(e)
+      if(!this.newData.includes(e)) {
+        this.newData.push(e)
+      }
       this.$emit('foo', this.newData)
     }
   },

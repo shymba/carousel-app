@@ -27,6 +27,7 @@ export default {
       this.listImages = await apiListImg.getListImg()
     },
     foo(arg) {
+      // console.log(arg);
       this.imgURLs = arg
     },
   },

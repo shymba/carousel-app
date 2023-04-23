@@ -1,7 +1,7 @@
 <template>
   <div class="list-of-urls">
     <ul v-for="li in mainList">
-      <li class="li-item" v-if="li.length > 0">URL: {{li}}</li>
+      <li class="li-item" >URL: {{li}}</li>
     </ul>
   </div>
 
@@ -27,6 +27,7 @@ export default {
 .li-item {
   text-align: center;
   color: yellow;
+  padding-bottom: 10px;
 }
 ul li {
   list-style: none;
