@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       currentIdx: 0,
-      newData: []
+      newData: [],
+      nextPage: 1
     }
   },
   methods: {
@@ -49,7 +50,13 @@ export default {
       }
     },
     nextImage() {
-      this.currentIdx++
+      if (this.currentIdx !== this.apiListImages.length-1) {
+        this.currentIdx++
+      } else {
+        this.nextPage++
+        this.$emit('nextPage', this.nextPage)
+        this.currentIdx++
+      }
     },
     foo(e){
       if(!this.newData.includes(e)) {
@@ -84,7 +91,7 @@ export default {
   background: none;
   border: none;
   font-size: 2rem;
-  top: 25%;
+  top: 45%;
   transform: translateY(-50%);
   color: rgba(255, 255, 255, .5);
   background-color: rgba(0, 0, 0, .1);

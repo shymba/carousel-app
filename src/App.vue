@@ -1,5 +1,5 @@
 <template>
-  <Carousel :apiListImages="listImages" @foo="foo" />
+  <Carousel :apiListImages="listImages" @foo="foo" @nextPage="getNextPage"/>
   <CheckedList :mainList="imgURLs"/>
 </template>
 
@@ -19,15 +19,19 @@ export default {
   data() {
     return {
       listImages: [],
-      imgURLs: []
+      imgURLs: [],
+      nextPage: []
     }
   },
   methods: {
-    async getListAllImg() {
-      this.listImages = await apiListImg.getListImg()
+    async getListAllImg(page) {
+      this.listImages = await apiListImg.getListImg(page)
+    },
+    async getNextPage(next) {
+      this.nextPage = await apiListImg.getListImg(next)
+      this.listImages = [...this.listImages, ...this.nextPage]
     },
     foo(arg) {
-      // console.log(arg);
       this.imgURLs = arg
     },
   },

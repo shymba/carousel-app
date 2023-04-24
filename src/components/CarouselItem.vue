@@ -58,7 +58,7 @@ input[type="checkbox"]:after {
   position: absolute;
   color: yellow;
   z-index: 4;
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free", serif;
   font-weight: 400;
   font-size: 1em;
   content: "\f111";

@@ -1,14 +1,16 @@
+import axios from 'axios';
+
 export default class ApiService {
 
     _apiBase = 'https://picsum.photos/';
 
-    async getListImg() {
-        const response_list = await fetch(`${this._apiBase}v2/list`, {
+    async getListImg(page) {
+        const response_list = await axios.get(`${this._apiBase}v2/list`, {
             params: {
-                _page: 1,
-                _limit: 30
+                page: page,
+                limit: 3
             }
-        }).then((res) => res.json());
-        return response_list
+        });
+        return response_list.data
     }
 }
