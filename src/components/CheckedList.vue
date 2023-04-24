@@ -1,7 +1,8 @@
 <template>
   <div class="list-of-urls">
     <ul v-for="li in mainList">
-      <li class="li-item" >URL: {{li}}</li>
+        <li class="li-item"><strong class="name">URL: </strong><a target="_blank" :href="li.url">{{li.url}}</a></li>
+      <li class="li-item"><strong class="name">Author: </strong>{{li.author}}</li>
     </ul>
   </div>
 
@@ -31,7 +32,18 @@ export default {
 }
 ul li {
   list-style: none;
+  
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: yellow;
+  }
 }
+
+.name {
+  color: #FFFFFF;
+}
+
 @media (max-width: 950px) {
   .li-item {
     font-size: 14px;

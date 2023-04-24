@@ -7,7 +7,7 @@
           :id="itemData.url"
           :value="itemData.url"
           v-model="checkedImage"
-          @click="sendURL(itemData.url)"
+          @click="sendURL(itemData)"
       />
       <label :for="itemData.url" >
         <img :src="itemData.download_url"/>
